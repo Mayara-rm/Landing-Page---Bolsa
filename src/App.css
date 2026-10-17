@@ -1,0 +1,69 @@
+:root {
+  /* ---------- Texto ---------- */
+  --text-primary: #f4f3ee;    /* títulos, link ativo do menu */
+  --text-secondary: #9c9b95;  /* parágrafos, links inativos do menu */
+  --text-on-accent: #0a0a0b;  /* texto sobre botão azul (= bg-base) */
+  --text-white: #ffffff;      /* botão sem fundo ("VER DETALHES") */
+  --text-muted: #6b6a66;      /* SUGESTÃO: placeholder de input, legendas */
+
+  /* ---------- Destaques (accent) ---------- */
+  --accent-gold: #b9a46a;     /* kickers: "COLEÇÃO EXCLUSIVA STAR WARS" */
+  --accent-blue: #4f8fe8;     /* botão principal "COMPRAR AGORA" */
+  --accent-blue-hover: #3d7ad6; /* SUGESTÃO: hover/active do botão */
+  --accent-yellow: #ffe81f;   /* sublinhado do menu ativo (amarelo Star Wars) */
+
+  /* ---------- Fundos ---------- */
+  --bg-base: #0a0a0b;         /* fundo geral da página */
+  --bg-surface: #121214;      /* cards, molduras das fotos */
+
+  /* Cores do fundo galáctico (shader "Galactic starfield" do Figma) */
+  --bg-space: #030304;        /* preto do centro */
+  --glow-blue: #141f38;       /* luz azul-aço da esquerda (Rebeldes) */
+  --glow-red: #380d0f;        /* luz carmesim da direita (Império) */
+
+  /* ---------- Bordas ---------- */
+  --border-default: #26262a;  /* bordas de cards e fotos */
+  --border-strong: #3a3a40;   /* linha embaixo do header */
+
+  /* ---------- Feedback (formulário de contato) — SUGESTÃO ---------- */
+  --color-error: #e5484d;
+  --color-success: #46a758;
+  --focus-ring: rgba(79, 143, 232, 0.5); /* foco acessível = accent-blue */
+
+  /* ---------- Tipografia ---------- */
+  --font-display: "Rajdhani", sans-serif; /* títulos (SemiBold 600) */
+  --font-body: "Inter", sans-serif;       /* texto, botões, menu */
+
+  --fs-hero: 64px;     /* lh 68px, ls 1px   — display/hero */
+  --fs-h1: 40px;       /* lh 46px, ls 0.5px — heading/h1 */
+  --fs-body: 16px;     /* lh 26px           — body/base */
+  --fs-caption: 12px;  /* lh 16px, ls 1.5px — label/caption (kicker, menu, botões) */
+
+  /* ---------- Formas e espaçamento ---------- */
+  --radius-button: 10px;
+  --radius-card: 12px;
+  --page-padding: 64px;
+
+  --bg-hover: rgba(255, 255, 255, 0.06);
+
+  color-scheme: dark;
+}
+
+/* Fundo galáctico em CSS puro, com as cores reais do shader do Figma */
+html {
+  min-height: 100%;
+  background-color: #030304;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text-primary);
+  background:
+    radial-gradient(ellipse 60% 100% at 0% 35%, var(--glow-blue), transparent 70%),
+    radial-gradient(ellipse 60% 100% at 100% 35%, var(--glow-red), transparent 70%),
+    radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, 0.55) 100%),
+    var(--bg-space);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
