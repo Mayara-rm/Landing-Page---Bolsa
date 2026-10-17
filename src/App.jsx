@@ -1,5 +1,5 @@
 // src/App.jsx
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import Header from './components/header/Header';
 import SectionLayout from './layout/sectionLayout';
 import Home from './sections/home';
@@ -7,6 +7,7 @@ import Gallery from './sections/gallery';
 import Outfit from './sections/outfit';
 import Details from './sections/details';
 import Contact from './sections/contact';
+import useFullPage from './hooks/useFullPage';
 
 
 // Tela provisória, só para as seções que ainda não existem
@@ -34,51 +35,34 @@ const sections = [
 export default function App() {
   const [index, setIndex] = useState(0);
 
-  // Navegação pelo menu e pelos botões: rola até a seção
-  const goTo = (i) => {
-    setIndex(i);
-    document.getElementById(sections[i].id)?.scrollIntoView({ behavior: 'smooth' });
-  };
+  // telas que ainda têm conteúdo interno registram aqui (ex.: Detalhes)
+  const guards = useRef({});
 
-  // Enquanto o efeito de tela cheia não existe, descobre qual seção
-  // está na tela para marcar o menu e disparar a animação de entrada
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const i = sections.findIndex((s) => s.id === entry.target.id);
-            if (i !== -1) setIndex(i);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
+  // Menu e botões: só trocam o número da tela, o CSS faz a animação
+  const goTo = (i) => setIndex(i);
 
-    sections.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  // Scroll do mouse e teclado
+  useFullPage({ total: sections.length, index, setIndex, guards });
 
   return (
     <>
       <Header activeIndex={index} onNavigate={goTo} />
-      <main>
-        {sections.map(({ id, label, Component }, i) => {
-          const Section = Component ?? Placeholder;
-          return (
-            <Section
-              key={id}
-              id={id}
-              label={label}
-              active={i === index}
-              onNavigate={goTo}
-            />
-          );
-        })}
+      <main className="fullpage">
+        <div className="fullpage__track" style={{ '--index': index }}>
+          {sections.map(({ id, label, Component }, i) => {
+            const Section = Component ?? Placeholder;
+            return (
+              <Section
+                key={id}
+                id={id}
+                label={label}
+                active={i === index}
+                onNavigate={goTo}
+                registerGuard={(fn) => { guards.current[i] = fn; }}
+              />
+            );
+          })}
+        </div>
       </main>
     </>
   );

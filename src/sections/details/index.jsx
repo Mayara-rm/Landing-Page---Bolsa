@@ -21,45 +21,31 @@ function Chevron() {
   );
 }
 
-export default function Details({ active, onNavigate }) {
+export default function Details({ active, onNavigate, registerGuard }) {
   const [step, setStep] = useState(0);
   const stepRef = useRef(0);
-  const lockRef = useRef(0);
 
   const go = (next) => {
     stepRef.current = next;
     setStep(next);
   };
 
+  // Avisa o scroll da página: "enquanto eu tiver passos internos, não troque de tela"
   useEffect(() => {
-    if (!active) return;
-
-    const move = (dir) => {
+    registerGuard?.((dir) => {
       const next = stepRef.current + dir;
-      if (next < 0 || next > LAST_STEP) return false; // fora dos limites: não consome
-      const now = Date.now();
-      if (now - lockRef.current < 900) return true; // trava a inércia do trackpad
-      lockRef.current = now;
+      if (next < 0 || next > LAST_STEP) return false; // acabou: libera a troca de tela
       go(next);
       return true;
-    };
+    });
+    return () => registerGuard?.(null);
+  }, [registerGuard]);
 
-    const onWheel = (e) => {
-      if (Math.abs(e.deltaY) < 8) return;
-      const consumed = move(e.deltaY > 0 ? 1 : -1);
-      if (consumed) e.preventDefault();
-    };
-    const onKey = (e) => {
-      if (e.key === 'ArrowDown') move(1) && e.preventDefault();
-      if (e.key === 'ArrowUp') move(-1) && e.preventDefault();
-    };
-
-    window.addEventListener('wheel', onWheel, { passive: false });
-    window.addEventListener('keydown', onKey);
-    return () => {
-      window.removeEventListener('wheel', onWheel);
-      window.removeEventListener('keydown', onKey);
-    };
+  // Ao sair de Detalhes, volta para o grid (depois da animação de saída, para não aparecer)
+  useEffect(() => {
+    if (active) return;
+    const t = setTimeout(() => go(0), 1000);
+    return () => clearTimeout(t);
   }, [active]);
 
   const page = step === 0 ? 0 : 1;
