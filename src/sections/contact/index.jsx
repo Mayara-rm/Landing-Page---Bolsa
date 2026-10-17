@@ -15,43 +15,23 @@ const benefits = [
     svg: <svg {...icon}><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" /></svg> },
 ];
 
-// A chave fica em .env.local:  VITE_WEB3FORMS_KEY=sua-chave
-const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
-
+// FORMULÁRIO ILUSTRATIVO: nada é enviado para lugar nenhum.
+// Para ativar o envio real depois, é só trocar o setTimeout por um fetch
+// (ex.: Web3Forms) dentro do handleSubmit.
 export default function Contact({ active }) {
-  // 'idle' | 'sending' | 'success' | 'error'
+  // 'idle' | 'sending' | 'success'
   const [status, setStatus] = useState('idle');
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form));
-    if (data.botcheck) return; // robô preencheu o campo escondido
-
     setStatus('sending');
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: ACCESS_KEY,
-          subject: 'Novo contato — Maya Store (Bolsa Star Wars)',
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          message: data.message,
-        }),
-      });
-      const json = await res.json();
-      if (json.success) {
-        setStatus('success');
-        form.reset();
-      } else {
-        setStatus('error');
-      }
-    } catch {
-      setStatus('error');
-    }
+
+    // simula o envio (~0,8 s) para mostrar os estados da interface
+    setTimeout(() => {
+      setStatus('success');
+      form.reset();
+    }, 800);
   }
 
   return (
@@ -104,9 +84,6 @@ export default function Contact({ active }) {
             <textarea name="message" rows="4" placeholder="Está interessado em adquirir nossa bolsa?" required />
           </label>
 
-          {/* campo escondido anti-spam */}
-          <input type="checkbox" name="botcheck" className={styles.bot} tabIndex="-1" autoComplete="off" />
-
           <div className={styles.actions}>
             <Button type="submit" variant="link" disabled={status === 'sending'}>
               {status === 'sending' ? 'Enviando...' : 'Enviar'}
@@ -117,8 +94,7 @@ export default function Contact({ active }) {
               </svg>
             </Button>
             <p className={`${styles.feedback} ${styles[status]}`} role="status" aria-live="polite">
-              {status === 'success' && 'Mensagem enviada! Em breve entramos em contato.'}
-              {status === 'error' && 'Não foi possível enviar agora. Tente novamente.'}
+              {status === 'success' && 'Obrigada! Este formulário é apenas ilustrativo, nenhuma mensagem foi enviada.'}
             </p>
           </div>
         </form>

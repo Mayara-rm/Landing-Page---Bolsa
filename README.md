@@ -13,7 +13,7 @@ Landing page de uma bolsa transversal temática, criada para a marca fictícia *
 - **Full page scroll próprio:** troca de tela com mouse, trackpad, teclado e menu, usando um hook customizado (`useFullPage`) e `translate3d` no CSS.
 - **Seção de Detalhes com duas "páginas":** grid de benefícios e um carrossel vertical circular, que conversa com o scroll da página.
 - **Animações de entrada escalonadas** via variáveis CSS (`--i`) e respeito a `prefers-reduced-motion`.
-- **Formulário de contato funcional** (Web3Forms) com estados de envio, sucesso e erro, e campo anti-spam.
+- **Formulário de contato ilustrativo**, com validação nativa e estados de envio e sucesso simulados (nenhum dado é enviado).
 - **Design system próprio** (cores, tipografia, raios) aplicado com tokens CSS.
 - **Desktop first**, com fundo galáctico em CSS puro.
 
@@ -22,7 +22,6 @@ Landing page de uma bolsa transversal temática, criada para a marca fictícia *
 - [React](https://react.dev/) + [Vite](https://vite.dev/)
 - JavaScript (ES6+)
 - CSS Modules e variáveis CSS
-- [Web3Forms](https://web3forms.com/) para o envio do formulário
 - Figma (protótipo e design system)
 - Fontes: Rajdhani e Inter (Google Fonts)
 
@@ -34,8 +33,6 @@ Landing page de uma bolsa transversal temática, criada para a marca fictícia *
 - Animações CSS: `transition`, `@keyframes`, `transform`, `clamp()`, `dvh`
 - Grid e Flexbox, `backdrop-filter` e gradientes
 - Acessibilidade: `aria-*`, `:focus-visible`, `prefers-reduced-motion`
-- `fetch` com `async/await` e tratamento de erro
-- Variáveis de ambiente no Vite (`import.meta.env`)
 
 ## 📁 Estrutura
 
@@ -60,9 +57,6 @@ cd Landing-Page---Bolsa
 # instalar
 npm install
 
-# configurar o formulário (chave gratuita em web3forms.com)
-echo "VITE_WEB3FORMS_KEY=sua-chave" > .env.local
-
 # rodar
 npm run dev
 ```
@@ -73,7 +67,7 @@ npm run dev
 2. **Galeria:** ângulos da bolsa
 3. **Outfit:** a bolsa em uso
 4. **Detalhes:** benefícios e carrossel dos diferenciais
-5. **Contato:** formulário e benefícios de compra
+5. **Contato:** formulário ilustrativo e benefícios de compra
 
 ## 👩‍💻 Autora
 
