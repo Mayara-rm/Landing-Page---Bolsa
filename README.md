@@ -5,7 +5,7 @@ Landing page de uma bolsa transversal temática, criada para a marca fictícia *
 > ⚠️ **Projeto fictício, feito apenas para estudo e portfólio.** Não é afiliado, patrocinado ou endossado pela Disney ou pela Lucasfilm. Star Wars e seus personagens pertencem aos respectivos donos.
 
 <!-- 👉 Troque pelos seus: -->
-<!-- 🔗 **Demo:** https://SEU-USUARIO.github.io/bolsa-starwars/ -->
+🔗 **Demo:** https://mayara-rm.github.io/Landing-Page---Bolsa/
 <!-- ![Preview](./docs/preview.gif) -->
 
 ## ✨ Destaques
@@ -54,8 +54,8 @@ src/
 
 ```bash
 # clonar
-git clone https://github.com/SEU-USUARIO/bolsa-starwars.git
-cd bolsa-starwars
+git clone https://github.com/Mayara-rm/Landing-Page---Bolsa.git
+cd Landing-Page---Bolsa
 
 # instalar
 npm install
