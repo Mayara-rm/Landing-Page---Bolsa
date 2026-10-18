@@ -1,4 +1,3 @@
-// src/components/button/Button.jsx
 import styles from './button.module.css';
 
 export default function Button({ variant = 'filled', type = 'button', disabled = false, onClick, href, children }) {

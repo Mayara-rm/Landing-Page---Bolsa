@@ -1,4 +1,3 @@
-// src/sections/contact/index.jsx
 import { useState } from 'react';
 import SectionLayout from '../../layout/sectionLayout';
 import Button from '../../components/button/Button';
@@ -27,7 +26,6 @@ export default function Contact({ active }) {
     const form = e.currentTarget;
     setStatus('sending');
 
-    // simula o envio (~0,8 s) para mostrar os estados da interface
     setTimeout(() => {
       setStatus('success');
       form.reset();
@@ -37,7 +35,6 @@ export default function Contact({ active }) {
   return (
     <SectionLayout id="contato" label="Contato" active={active}>
       <div className={`${styles.contact} ${active ? styles.active : ''}`}>
-        {/* ---------- coluna esquerda ---------- */}
         <div className={styles.text}>
           <span className={styles.eyebrow} style={{ '--i': 0 }}>Fale conosco</span>
           <h2 className={styles.title} style={{ '--i': 1 }}>Quer adquirir nossa novidade?</h2>
@@ -59,7 +56,6 @@ export default function Contact({ active }) {
           </ul>
         </div>
 
-        {/* ---------- formulário ---------- */}
         <form className={styles.form} style={{ '--i': 2 }} onSubmit={handleSubmit}>
           <h3 className={styles.formTitle}>Contate-nos</h3>
 
@@ -100,7 +96,6 @@ export default function Contact({ active }) {
         </form>
       </div>
 
-      {/* ---------- rodapé ---------- */}
       <footer className={styles.footer}>
         <strong>Maya Store</strong>
         <span>Projeto fictício de portfólio — não afiliado à Disney/Lucasfilm.</span>

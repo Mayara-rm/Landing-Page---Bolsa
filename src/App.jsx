@@ -1,4 +1,3 @@
-// src/App.jsx
 import { useState, useRef } from 'react';
 import Header from './components/header/Header';
 import SectionLayout from './layout/sectionLayout';
@@ -21,7 +20,6 @@ function Placeholder({ id, label, active }) {
 
 // A ordem aqui é a ordem das telas e o "index" usado no Header.
 // Os ids precisam ser os mesmos dos links do Header.
-// Quando uma seção ficar pronta, é só adicionar o Component dela.
 
 const sections = [
   { id: 'home',      label: 'Início',   Component: Home },
@@ -38,10 +36,8 @@ export default function App() {
   // telas que ainda têm conteúdo interno registram aqui (ex.: Detalhes)
   const guards = useRef({});
 
-  // Menu e botões: só trocam o número da tela, o CSS faz a animação
   const goTo = (i) => setIndex(i);
 
-  // Scroll do mouse e teclado
   useFullPage({ total: sections.length, index, setIndex, guards });
 
   return (

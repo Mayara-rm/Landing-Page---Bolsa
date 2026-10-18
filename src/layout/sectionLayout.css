@@ -5,8 +5,8 @@
   height: 100dvh;                       /* celular: considera a barra do navegador */
   padding: calc(var(--header-h, 88px) + 24px) clamp(20px, 4.5vw, 64px) 48px;
   display: flex;
-  align-items: center;                  /* centraliza na vertical */
-  justify-content: center;              /* centraliza na horizontal */
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 

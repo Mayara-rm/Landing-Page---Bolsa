@@ -54,7 +54,6 @@ export default function Details({ active, onNavigate, registerGuard }) {
     <SectionLayout id="detalhes" label="Detalhes do produto" active={active}>
       <div className={styles.viewport}>
         <div className={styles.track} style={{ transform: `translateY(${-page * 100}%)` }}>
-          {/* PÁGINA 1 */}
           <div className={styles.page}>
             <div className={`${styles.intro} ${active && step === 0 ? styles.show : ''}`}>
               <span className={styles.eyebrow}>Por que essa bolsa</span>
@@ -71,7 +70,6 @@ export default function Details({ active, onNavigate, registerGuard }) {
             </div>
           </div>
 
-          {/* PÁGINA 2 */}
           <div className={styles.page}>
             <DetailsCarousel current={Math.max(step - 1, 0)} onSelect={(i) => go(i + 1)} />
           </div>

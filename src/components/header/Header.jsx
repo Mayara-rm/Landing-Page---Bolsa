@@ -11,8 +11,7 @@ const links = [
 ];
 
 export default function Header({ activeIndex, onNavigate }) {
-  // Destaques (índice 3) não tem item no menu, então o último link
-  // cujo index já foi alcançado fica marcado como ativo
+  // o último link cujo index já foi alcançado fica marcado como ativo
   const activeLink = [...links].reverse().find((l) => l.index <= activeIndex);
 
   return (

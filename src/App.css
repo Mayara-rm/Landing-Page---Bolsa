@@ -1,45 +1,37 @@
 :root {
-  /* ---------- Texto ---------- */
-  --text-primary: #f4f3ee;    /* títulos, link ativo do menu */
-  --text-secondary: #9c9b95;  /* parágrafos, links inativos do menu */
-  --text-on-accent: #0a0a0b;  /* texto sobre botão azul (= bg-base) */
-  --text-white: #ffffff;      /* botão sem fundo ("VER DETALHES") */
-  --text-muted: #6b6a66;      /* SUGESTÃO: placeholder de input, legendas */
+  --text-primary: #f4f3ee;
+  --text-secondary: #9c9b95;
+  --text-on-accent: #0a0a0b;
+  --text-white: #ffffff;
+  --text-muted: #6b6a66;
 
-  /* ---------- Destaques (accent) ---------- */
-  --accent-gold: #b9a46a;     /* kickers: "COLEÇÃO EXCLUSIVA STAR WARS" */
-  --accent-blue: #4f8fe8;     /* botão principal "COMPRAR AGORA" */
-  --accent-blue-hover: #3d7ad6; /* SUGESTÃO: hover/active do botão */
-  --accent-yellow: #ffe81f;   /* sublinhado do menu ativo (amarelo Star Wars) */
+  --accent-gold: #b9a46a;
+  --accent-blue: #4f8fe8;
+  --accent-blue-hover: #3d7ad6;
+  --accent-yellow: #ffe81f;
 
-  /* ---------- Fundos ---------- */
-  --bg-base: #0a0a0b;         /* fundo geral da página */
-  --bg-surface: #121214;      /* cards, molduras das fotos */
+  --bg-base: #0a0a0b;
+  --bg-surface: #121214;
 
-  /* Cores do fundo galáctico (shader "Galactic starfield" do Figma) */
-  --bg-space: #030304;        /* preto do centro */
-  --glow-blue: #141f38;       /* luz azul-aço da esquerda (Rebeldes) */
-  --glow-red: #380d0f;        /* luz carmesim da direita (Império) */
+  --bg-space: #030304;
+  --glow-blue: #141f38;
+  --glow-red: #380d0f;
 
-  /* ---------- Bordas ---------- */
-  --border-default: #26262a;  /* bordas de cards e fotos */
-  --border-strong: #3a3a40;   /* linha embaixo do header */
+  --border-default: #26262a;
+  --border-strong: #3a3a40;
 
-  /* ---------- Feedback (formulário de contato) — SUGESTÃO ---------- */
   --color-error: #e5484d;
   --color-success: #46a758;
-  --focus-ring: rgba(79, 143, 232, 0.5); /* foco acessível = accent-blue */
+  --focus-ring: rgba(79, 143, 232, 0.5);
 
-  /* ---------- Tipografia ---------- */
-  --font-display: "Rajdhani", sans-serif; /* títulos (SemiBold 600) */
-  --font-body: "Inter", sans-serif;       /* texto, botões, menu */
+  --font-display: "Rajdhani", sans-serif;
+  --font-body: "Inter", sans-serif;
 
-  --fs-hero: 64px;     /* lh 68px, ls 1px   — display/hero */
-  --fs-h1: 40px;       /* lh 46px, ls 0.5px — heading/h1 */
-  --fs-body: 16px;     /* lh 26px           — body/base */
-  --fs-caption: 12px;  /* lh 16px, ls 1.5px — label/caption (kicker, menu, botões) */
+  --fs-hero: 64px;
+  --fs-h1: 40px;
+  --fs-body: 16px;
+  --fs-caption: 12px;
 
-  /* ---------- Formas e espaçamento ---------- */
   --radius-button: 10px;
   --radius-card: 12px;
   --page-padding: 64px;
@@ -49,7 +41,6 @@
   color-scheme: dark;
 }
 
-/* Fundo galáctico em CSS puro, com as cores reais do shader do Figma */
 html {
   min-height: 100%;
   background-color: #030304;

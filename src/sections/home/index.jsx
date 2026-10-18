@@ -1,7 +1,6 @@
-// src/sections/home/index.jsx
 import SectionLayout from '../../layout/sectionLayout';
 import Button from '../../components/button/Button';
-import heroImage from '../../assets/main-bag-home.png'; // troque pelo nome real da sua foto
+import heroImage from '../../assets/main-bag-home.png';
 import styles from './home.module.css';
 
 export default function Home({ active, onNavigate }) {

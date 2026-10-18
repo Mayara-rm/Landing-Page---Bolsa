@@ -1,4 +1,3 @@
-// src/sections/gallery/index.jsx
 import SectionLayout from '../../layout/sectionLayout';
 import frente from '../../assets/front-bag-gallery.png';
 import lateral from '../../assets/behind-bag-gallery.png';

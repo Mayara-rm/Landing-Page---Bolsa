@@ -1,4 +1,3 @@
-/* src/sections/outfit/outfit.module.css */
 .outfit {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
@@ -8,7 +7,6 @@
   height: clamp(420px, 72vh, 700px);
 }
 
-/* ---------- foto grande ---------- */
 .main {
   position: relative;
   margin: 0;
@@ -26,7 +24,6 @@
   object-position: center 25%;   /* mantém o rosto e a bolsa no enquadramento */
 }
 
-/* ---------- coluna do texto ---------- */
 .side {
   display: flex;
   flex-direction: column;
@@ -63,7 +60,6 @@
   font: 400 16px/26px 'Inter', sans-serif;
 }
 
-/* ---------- foto de detalhe ---------- */
 .detail {
   flex: 1;
   min-height: 140px;
@@ -86,7 +82,6 @@
   transform: scale(1.05);
 }
 
-/* ---------- entrada escalonada ---------- */
 .main,
 .eyebrow,
 .title,

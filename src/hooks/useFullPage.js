@@ -1,5 +1,3 @@
-// src/hooks/useFullPage.js
-// Efeito "full page scroll": cada giro do mouse / tecla troca de tela inteira.
 import { useEffect, useRef } from 'react';
 
 const LOCK_MS = 900; // tempo parado depois de trocar (precisa ser >= a transição do CSS)
@@ -16,7 +14,6 @@ export default function useFullPage({ total, index, setIndex, guards }) {
   const indexRef = useRef(index);
   const lockRef = useRef(0);
 
-  // sempre guarda o valor mais novo, sem precisar recriar os listeners
   useEffect(() => {
     indexRef.current = index;
   }, [index]);
@@ -24,7 +21,7 @@ export default function useFullPage({ total, index, setIndex, guards }) {
   useEffect(() => {
     const go = (dir) => {
       const now = Date.now();
-      if (now - lockRef.current < LOCK_MS) return; // ainda animando / inércia do trackpad
+      if (now - lockRef.current < LOCK_MS) return;
 
       // 1) a tela atual ainda tem conteúdo interno?
       const guard = guards.current[indexRef.current];
@@ -41,8 +38,8 @@ export default function useFullPage({ total, index, setIndex, guards }) {
     };
 
     const onWheel = (e) => {
-      e.preventDefault(); // impede o scroll nativo
-      if (Math.abs(e.deltaY) < 8) return; // ignora toques mínimos do trackpad
+      e.preventDefault();
+      if (Math.abs(e.deltaY) < 8) return;
       go(e.deltaY > 0 ? 1 : -1);
     };
 

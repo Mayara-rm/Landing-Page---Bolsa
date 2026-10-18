@@ -1,4 +1,3 @@
-// src/sections/outfit/index.jsx
 import SectionLayout from '../../layout/sectionLayout';
 import modelo from '../../assets/model-outfit.png';
 import detalhe from '../../assets/model-detail-outfit.png';
